@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_two_tittle_size">22sp</dimen>
+    <dimen name="splash_two_subTittle_size">16sp</dimen>
+    <dimen name="splash_two_tittle_marginTop">40dp</dimen>
+    <dimen name="splash_two_subTittle_marginTop">10dp</dimen>
+
+</resources>
