@@ -5,5 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashOneActivity">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.viewpager.widget.ViewPager>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/button"
+        android:text="欢迎使用"
+        android:onClick="clickFinish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
