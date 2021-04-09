@@ -19,7 +19,7 @@
         android:layout_marginBottom="100dp"
         android:elevation="1dp"
         android:layout_width="100dp"
-        android:layout_height="20dp">
+        android:layout_height="30dp">
     </com.yfz.splash.DotLayout>
 
     <Button
