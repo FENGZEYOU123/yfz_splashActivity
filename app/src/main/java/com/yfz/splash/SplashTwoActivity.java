@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.Button;
 
 import com.yfz.splash.customView.DotLayout;
@@ -93,6 +97,7 @@ public class SplashTwoActivity extends AppCompatActivity {
         public void onPageSelected(int position) {  //翻到最后一页才显示按钮
             if(position==mArrayList.size()-1){
                 mButton.setVisibility(View.VISIBLE);
+                startAnimation(mButton);
             }else {
                 mButton.setVisibility(View.GONE);
             }
@@ -106,6 +111,12 @@ public class SplashTwoActivity extends AppCompatActivity {
     //结束按钮
     public void clickFinish(View view){
         finish();
+    }
+    //按钮动画
+    private void startAnimation(View view){
+      ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(view,"translationY",150f,0f);
+        objectAnimator.setDuration(300);
+        objectAnimator.start();
     }
 
 }
