@@ -97,7 +97,6 @@ public class SplashBaseActivity extends AppCompatActivity {
     }
     //结束按钮
     public void clickFinish(View view){
-        Toast.makeText(this,"结束导航页",Toast.LENGTH_SHORT).show();
         finish();
     }
 

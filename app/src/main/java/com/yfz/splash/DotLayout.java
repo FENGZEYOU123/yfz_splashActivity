@@ -24,6 +24,7 @@ public class DotLayout extends LinearLayout {
     private int mDotWidth=0;
     private int mDotHeight =0;
     private float mDotMargin=0;
+    private int mSelectedPosition=0;
 
 
     public DotLayout(Context context) {
@@ -64,7 +65,7 @@ public class DotLayout extends LinearLayout {
         this.mPaintDotUnSelected=new Paint(Paint.ANTI_ALIAS_FLAG);
         this.mPaintDotUnSelected.setStyle(Paint.Style.STROKE);
         this.mPaintDotUnSelected.setColor(Color.GRAY);
-        this.mPaintDotUnSelected.setStrokeWidth(2f);
+        this.mPaintDotUnSelected.setStrokeWidth(3f);
     }
     //刷新绘制
     public void refreshUI(){
@@ -83,11 +84,14 @@ public class DotLayout extends LinearLayout {
         this.getLayoutParams().height= (int)(mDotHeight);
         this.getLayoutParams().width = (int)(mDotWidth * pageNumber + mDotMargin * (pageNumber-1));
     }
-
+    //设置当前选中的页面
+    public void setSelectedPosition(int position){
+        mSelectedPosition=position;
+        refreshUI();
+    }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         if(mPageNumber>0 && mDotWidth>0 && mDotHeight>0) { //必须传入数量,Dot长宽,才开始绘制
            int i=0;
            while(i<mPageNumber){
@@ -95,7 +99,11 @@ public class DotLayout extends LinearLayout {
                mRectF.top=0;
                mRectF.right=mRectF.left+mDotWidth;
                mRectF.bottom=getHeight();
-               canvas.drawRoundRect(mRectF, mDotCornersRadius, mDotCornersRadius, mPaintDotSelected);
+               if(mSelectedPosition==i) {
+                   canvas.drawRoundRect(mRectF, mDotCornersRadius, mDotCornersRadius, mPaintDotSelected);
+               }else {
+                   canvas.drawRoundRect(mRectF, mDotCornersRadius, mDotCornersRadius, mPaintDotUnSelected);
+               }
                i++;
            }
         }
