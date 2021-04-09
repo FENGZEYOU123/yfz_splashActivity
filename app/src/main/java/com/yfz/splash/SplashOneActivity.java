@@ -51,7 +51,7 @@ public class SplashOneActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
 
-        mDotLayout.setDotInformation(mArrayList.size(),30,30,10,10f);
+        mDotLayout.setDotInformation(mArrayList.size(),30,30,10,100f);
 
     }
     private void initialViewPager(){

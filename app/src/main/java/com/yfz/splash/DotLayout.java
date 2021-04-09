@@ -18,12 +18,11 @@ public class DotLayout extends LinearLayout {
     private Context mContext;
     private Paint mPaintDotSelected;
     private Paint mPaintDotUnSelected;
-    private float mDotCornersRadius=10f;
+    private float mDotCornersRadius=100f;
     private RectF mRectF;
     private int mPageNumber=0;
     private int mDotWidth=0;
     private int mDotHeight =0;
-    private float mDotArcRate=0;
     private float mDotMargin=0;
 
 
@@ -46,6 +45,7 @@ public class DotLayout extends LinearLayout {
         initial_paint_dot_selected();
         initial_paint_dot_unSelected();
         this.setBackgroundColor(Color.TRANSPARENT);
+
     }
 
     @Override
@@ -74,11 +74,12 @@ public class DotLayout extends LinearLayout {
     public void setPageNumber(int pageNumber){
     }
     //设置圆点信息-数量-高-宽
-    public void setDotInformation(int pageNumber, int dotHeight, int dotWidth, float dotMargin,float mDotArcRate){
+    public void setDotInformation(int pageNumber, int dotHeight, int dotWidth, float dotMargin,float dotCornersRadius){
         mPageNumber = pageNumber; //数量
         mDotHeight  = dotHeight; //高
         mDotWidth   = dotWidth; //宽
         mDotMargin  = dotMargin; //间距
+        mDotCornersRadius=dotCornersRadius;//圆弧
         this.getLayoutParams().height= (int)(mDotHeight);
         this.getLayoutParams().width = (int)(mDotWidth * pageNumber + mDotMargin * (pageNumber-1));
     }
@@ -86,19 +87,18 @@ public class DotLayout extends LinearLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawRect(0, 0, getWidth(),getHeight(), mPaintDotSelected);
 
-//        if(mPageNumber>0 && mMaxWidth>0 && mMaxHeight>0) { //必须传入数量,方块长宽,才开始绘制
-//           int i=0;
-//           while(i<mPageNumber){
-//               mRectF.left=i*(mMaxWidth/mPageNumber);
-//               mRectF.top=0;
-//               mRectF.right=mRectF.left+mDotRadius;
-//               mRectF.bottom=getHeight();
-//               canvas.drawRoundRect(mRectF, mDotCornersRadius, mDotCornersRadius, mPaintDotSelected);
-//               i++;
-//           }
-//        }
+        if(mPageNumber>0 && mDotWidth>0 && mDotHeight>0) { //必须传入数量,Dot长宽,才开始绘制
+           int i=0;
+           while(i<mPageNumber){
+               mRectF.left=i*(mDotWidth+mDotMargin);
+               mRectF.top=0;
+               mRectF.right=mRectF.left+mDotWidth;
+               mRectF.bottom=getHeight();
+               canvas.drawRoundRect(mRectF, mDotCornersRadius, mDotCornersRadius, mPaintDotSelected);
+               i++;
+           }
+        }
     }
 
 }
