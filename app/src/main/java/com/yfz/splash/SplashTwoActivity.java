@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * 作者：游丰泽
  * 简介：导航页,翻到最后一页显示按钮
- * 风格1：添加自绘制的翻页圆点指示
+ * 风格1：添加自绘制的翻页圆点指示，动画按钮
  *       模仿APP "ClassIn" 的欢迎页
  */
 public class SplashTwoActivity extends AppCompatActivity {
