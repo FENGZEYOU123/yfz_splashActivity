@@ -14,18 +14,18 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
-        <TextView
+        <com.yfz.splash.customView.SplashTwoTextView
             android:id="@+id/title_main"
             android:text="在线课堂"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/splash_two_tittle_marginTop"
-            android:textStyle="bold"
+
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/splash_two_tittle_size"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        </TextView>
+        </com.yfz.splash.customView.SplashTwoTextView>
         <TextView
             android:text="远程授课 实时沟通"
             app:layout_constraintTop_toBottomOf="@+id/title_main"

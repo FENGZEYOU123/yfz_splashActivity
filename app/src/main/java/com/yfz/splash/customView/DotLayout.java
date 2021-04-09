@@ -1,4 +1,4 @@
-package com.yfz.splash;
+package com.yfz.splash.customView;
 
 import android.content.Context;
 import android.graphics.Canvas;
