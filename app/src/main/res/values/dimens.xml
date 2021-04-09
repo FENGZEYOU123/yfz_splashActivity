@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="splash_two_tittle_size">24sp</dimen>
-    <dimen name="splash_two_subTittle_size">16sp</dimen>
+    <dimen name="splash_two_subTittle_size">17sp</dimen>
     <dimen name="splash_two_tittle_marginTop">35dp</dimen>
     <dimen name="splash_two_subTittle_marginTop">5dp</dimen>
 

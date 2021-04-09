@@ -33,7 +33,7 @@ public class SplashTwoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Util.fullScreen(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_one);
+        setContentView(R.layout.activity_splash_two);
         initialView();
         initialViewPager();
     }
