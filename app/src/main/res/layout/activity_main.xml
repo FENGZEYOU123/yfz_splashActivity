@@ -24,5 +24,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </Button>
+    <Button
+        android:id="@+id/button_2"
+        android:text="导航页-风格2-模仿ClassIn"
+        android:onClick="GoSplashActivityTwo"
+        app:layout_constraintTop_toBottomOf="@+id/button_1"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

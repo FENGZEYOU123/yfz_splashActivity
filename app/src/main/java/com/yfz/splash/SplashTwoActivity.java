@@ -16,8 +16,9 @@ import java.util.ArrayList;
  * 作者：游丰泽
  * 简介：导航页,翻到最后一页显示按钮
  * 风格1：添加自绘制的翻页圆点指示
+ *       模仿APP "ClassIn" 的欢迎页
  */
-public class SplashOneActivity extends AppCompatActivity {
+public class SplashTwoActivity extends AppCompatActivity {
 
     private LayoutInflater layoutInflater;
     private ViewPager mViewPager;
@@ -38,9 +39,9 @@ public class SplashOneActivity extends AppCompatActivity {
         mViewPager=findViewById(R.id.viewPager);
         mButton=findViewById(R.id.button);
         mDotLayout=findViewById(R.id.dotLayout);
-        mView1=layoutInflater.inflate(R.layout.splash_one_view_1,null);
-        mView2=layoutInflater.inflate(R.layout.splash_one_view_2,null);
-        mView3=layoutInflater.inflate(R.layout.splash_one_view_3,null);
+        mView1=layoutInflater.inflate(R.layout.splash_two_view_1,null);
+        mView2=layoutInflater.inflate(R.layout.splash_two_view_2,null);
+        mView3=layoutInflater.inflate(R.layout.splash_two_view_3,null);
         mArrayList=new ArrayList<>(); //将想要展示的view储存到数组中
         mArrayList.add(mView1);
         mArrayList.add(mView2);
@@ -49,8 +50,7 @@ public class SplashOneActivity extends AppCompatActivity {
         mViewPager.setOnPageChangeListener(new ViewPagerChangeListener()); //监听页面状态
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
-
-        mDotLayout.setDotInformation(mArrayList.size(),40,40,10,getResources().getDrawable(R.drawable.dot_one_selected),getResources().getDrawable(R.drawable.dot_one_unselected));
+        mDotLayout.setDotInformation(mArrayList.size(),10,10,10,getResources().getDrawable(R.drawable.dot_two_selected),getResources().getDrawable(R.drawable.dot_two_unselected));
 
     }
     private void initialViewPager(){

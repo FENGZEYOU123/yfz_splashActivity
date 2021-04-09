@@ -4,15 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
 /**
@@ -28,6 +25,7 @@ public class SplashBaseActivity extends AppCompatActivity {
     private Button mButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Util.fullScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_base);
         initialView();

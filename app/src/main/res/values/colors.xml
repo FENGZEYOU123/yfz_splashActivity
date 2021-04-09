@@ -4,4 +4,8 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorGray">#808080</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorSplash2Selected">#019366</color>
+    <color name="colorSplash2UnSelected">#CAEADF</color>
+
+
 </resources>

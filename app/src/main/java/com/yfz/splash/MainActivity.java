@@ -15,16 +15,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Util.fullScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Util.fullScreen(this);
     }
 
     public void GoSplashActivityBase(View view){
         startActivity(new Intent(this, SplashBaseActivity.class));
     }
-
     public void GoSplashActivityOne(View view){
         startActivity(new Intent(this, SplashOneActivity.class));
     }
+    public void GoSplashActivityTwo(View view){
+        startActivity(new Intent(this, SplashTwoActivity.class));
+    }
+
+
 }
