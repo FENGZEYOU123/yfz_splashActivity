@@ -17,20 +17,19 @@ import java.util.ArrayList;
 
 /**
  * 作者：游丰泽
- * 简介：导航页,翻到最后一页显示按钮
+ * 简介：基础的导航页,翻到最后一页显示按钮
  */
-public class SplashOneActivity extends AppCompatActivity {
+public class SplashBaseActivity extends AppCompatActivity {
 
     private LayoutInflater layoutInflater;
     private ViewPager mViewPager;
     private ArrayList<View> mArrayList;
     private View mView1,mView2,mView3;
     private Button mButton;
-    private DotLayout mDotLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_one);
+        setContentView(R.layout.activity_splash_base);
         initialView();
         initialViewPager();
     }
@@ -38,10 +37,9 @@ public class SplashOneActivity extends AppCompatActivity {
         layoutInflater=getLayoutInflater().from(this);
         mViewPager=findViewById(R.id.viewPager);
         mButton=findViewById(R.id.button);
-        mDotLayout=findViewById(R.id.dotLayout);
-        mView1=layoutInflater.inflate(R.layout.splash_one_view_1,null);
-        mView2=layoutInflater.inflate(R.layout.splash_one_view_2,null);
-        mView3=layoutInflater.inflate(R.layout.splash_one_view_3,null);
+        mView1=layoutInflater.inflate(R.layout.splash_base_view_1,null);
+        mView2=layoutInflater.inflate(R.layout.splash_base_view_2,null);
+        mView3=layoutInflater.inflate(R.layout.splash_base_view_3,null);
         mArrayList=new ArrayList<>(); //将想要展示的view储存到数组中
         mArrayList.add(mView1);
         mArrayList.add(mView2);
@@ -50,8 +48,6 @@ public class SplashOneActivity extends AppCompatActivity {
         mViewPager.setOnPageChangeListener(new ViewPagerChangeListener()); //监听页面状态
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
-
-        mDotLayout.setPageNumber(mArrayList.size());
     }
     private void initialViewPager(){
 

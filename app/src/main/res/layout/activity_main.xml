@@ -8,8 +8,19 @@
     android:layout_margin="20dp"
     tools:context=".MainActivity">
     <Button
-        android:text="基础导航页"
+        android:id="@+id/button_base"
+        android:text="导航页-基础-最后一页显示按钮"
+        android:onClick="GoSplashActivityBase"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Button>
+    <Button
+        android:id="@+id/button_1"
+        android:text="导航页-风格1"
         android:onClick="GoSplashActivityOne"
+        app:layout_constraintTop_toBottomOf="@+id/button_base"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </Button>

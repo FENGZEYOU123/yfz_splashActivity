@@ -20,7 +20,11 @@ public class MainActivity extends AppCompatActivity {
         Util.fullScreen(this);
     }
 
+    public void GoSplashActivityBase(View view){
+        startActivity(new Intent(this, SplashBaseActivity.class));
+    }
+
     public void GoSplashActivityOne(View view){
-        startActivity(new Intent(this,SplashOneActivity.class));
+        startActivity(new Intent(this, SplashOneActivity.class));
     }
 }
