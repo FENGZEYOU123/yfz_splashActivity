@@ -5,18 +5,18 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
 import androidx.annotation.Nullable;
 
 /**
  * 作者：游丰泽
- * 简介：自定义绘制原点指示器，用于翻页
+ * 简介：自定义绘制条形指示器，用于翻页
  * setDotInfor设置圆点信息,页数，长宽，
  */
-public class DotLayout extends LinearLayout {
+public class RectanglePointerView extends LinearLayout {
     private Context mContext;
     private Paint mPaintDotSelected;
     private Paint mPaintDotUnSelected;
@@ -24,22 +24,22 @@ public class DotLayout extends LinearLayout {
     private int mPageNumber=0;
     private int mDotWidth=0;
     private int mDotHeight =0;
-    private float mDotMargin=0;
     private int mSelectedPosition=0;
+    private float mSelectedProcess=0;
     private Drawable mDotDrawableSelected;
     private Drawable mDotDrawableUnSelected;
 
 
 
-    public DotLayout(Context context) {
+    public RectanglePointerView(Context context) {
         super(context);
         initial(context);
     }
-    public DotLayout(Context context, @Nullable AttributeSet attrs) {
+    public RectanglePointerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initial(context);
     }
-    public DotLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RectanglePointerView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initial(context);
     }
@@ -79,42 +79,50 @@ public class DotLayout extends LinearLayout {
     public void setPageNumber(int pageNumber){
     }
     //设置圆点信息-数量-高-宽
-    public void setDotInformation(int pageNumber, int dotHeight, int dotWidth, float dotMargin,Drawable dotDrawableSelected,Drawable dotDrawableUnSelected){
+    public void setDotInformation(int pageNumber, int dotHeight, int dotWidth,Drawable dotDrawableSelected,Drawable dotDrawableUnSelected){
         mPageNumber = pageNumber; //数量
         mDotHeight  = dotHeight; //高
         mDotWidth   = dotWidth; //宽
-        mDotMargin  = dotMargin; //间距
         mDotDrawableSelected=dotDrawableSelected;
         mDotDrawableUnSelected=dotDrawableUnSelected;
 
         this.getLayoutParams().height= (int)(mDotHeight);
-        this.getLayoutParams().width = (int)(mDotWidth * pageNumber + mDotMargin * (pageNumber-1));
+        this.getLayoutParams().width = (int)(mDotWidth * pageNumber);
     }
     //设置当前选中的页面
-    public void setSelectedPosition(int position){
-        mSelectedPosition=position;
+    public void refreshPointerProcess(int position,float process){
+        mSelectedPosition=position+1;
+        mSelectedProcess=process+position+1;
         refreshUI();
     }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if(mPageNumber>0 && mDotWidth>0 && mDotHeight>0) { //必须传入数量,Dot长宽,才开始绘制
-           int i=0;
-           while(i<mPageNumber){
-               mRect.left=(int)(i*(mDotWidth+mDotMargin));
+                //先绘制条形总长度，未选中drawable）
+                mRect.left=0;
+                mRect.top=0;
+                mRect.right=getWidth();
+                mRect.bottom=getHeight();
+                mDotDrawableUnSelected.setBounds(mRect);
+                mDotDrawableUnSelected.draw(canvas);
+                //再绘制当前进度长度，选中drawable。进度比例% * 组件总长
+                //进度百分比为：onPageScolled / 总页数 *100
+                //组件总长：getwidth();
+               mRect.left=0;
                mRect.top=0;
-               mRect.right=mRect.left+mDotWidth;
+               mRect.right=(int)((mSelectedProcess/mPageNumber)*(getWidth()));
                mRect.bottom=getHeight();
-               if(mSelectedPosition==i) {
+//               if(mSelectedPosition==i) {
                    mDotDrawableSelected.setBounds(mRect);
                    mDotDrawableSelected.draw(canvas);
-               }else {
-                   mDotDrawableUnSelected.setBounds(mRect);
-                   mDotDrawableUnSelected.draw(canvas);
-               }
-               i++;
+//               }else {
+//                   mDotDrawableUnSelected.setBounds(mRect);
+//                   mDotDrawableUnSelected.draw(canvas);
+//               }
+
            }
-        }
+
     }
 
 }

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SplashTwoActivity"></activity>
         <activity android:name=".SplashOneActivity" />
-        <activity android:name=".SplashBaseActivity" />
+        <activity android:name=".SplashZeroActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

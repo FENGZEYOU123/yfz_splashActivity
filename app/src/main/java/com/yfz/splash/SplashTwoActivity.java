@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.yfz.splash.customView.DotLayout;
+import com.yfz.splash.customView.DotPointerView;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class SplashTwoActivity extends AppCompatActivity {
     private ArrayList<View> mArrayList;
     private View mView1,mView2,mView3;
     private Button mButton;
-    private DotLayout mDotLayout;
+    private DotPointerView mDotPointerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Util.fullScreen(this);
@@ -43,7 +43,7 @@ public class SplashTwoActivity extends AppCompatActivity {
         layoutInflater=getLayoutInflater().from(this);
         mViewPager=findViewById(R.id.viewPager);
         mButton=findViewById(R.id.button);
-        mDotLayout=findViewById(R.id.dotLayout);
+        mDotPointerView =findViewById(R.id.dotLayout);
         mView1=layoutInflater.inflate(R.layout.splash_two_view_1,null);
         mView2=layoutInflater.inflate(R.layout.splash_two_view_2,null);
         mView3=layoutInflater.inflate(R.layout.splash_two_view_3,null);
@@ -55,7 +55,7 @@ public class SplashTwoActivity extends AppCompatActivity {
         mViewPager.setOnPageChangeListener(new ViewPagerChangeListener()); //监听页面状态
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
-        mDotLayout.setDotInformation(mArrayList.size(),10,10,10,getResources().getDrawable(R.drawable.splash_two_dot_selected),getResources().getDrawable(R.drawable.splash_two_dot_unselected));
+        mDotPointerView.setDotInformation(mArrayList.size(),10,10,10,getResources().getDrawable(R.drawable.splash_two_dot_selected),getResources().getDrawable(R.drawable.splash_two_dot_unselected));
 
     }
     private void initialViewPager(){
@@ -99,7 +99,7 @@ public class SplashTwoActivity extends AppCompatActivity {
             }else {
                 mButton.setVisibility(View.GONE);
             }
-            mDotLayout.setSelectedPosition(position); //刷新圆点UI，传入当前选中的页面位置
+            mDotPointerView.setSelectedPosition(position); //刷新圆点UI，传入当前选中的页面位置
         }
         @Override
         public void onPageScrollStateChanged(int state) {

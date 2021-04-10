@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashBaseActivity">
+    tools:context=".SplashOneActivity">
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </androidx.viewpager.widget.ViewPager>
-    <com.yfz.splash.customView.DotLayout
+    <com.yfz.splash.customView.DotPointerView
         android:id="@+id/dotLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,7 +20,7 @@
         android:elevation="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    </com.yfz.splash.customView.DotLayout>
+    </com.yfz.splash.customView.DotPointerView>
 
     <Button
         android:visibility="gone"

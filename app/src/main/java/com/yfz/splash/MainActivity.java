@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void GoSplashActivityBase(View view){
-        startActivity(new Intent(this, SplashBaseActivity.class));
+    public void GoSplashActivityZero(View view){
+        startActivity(new Intent(this, SplashZeroActivity.class));
     }
     public void GoSplashActivityOne(View view){
         startActivity(new Intent(this, SplashOneActivity.class));
