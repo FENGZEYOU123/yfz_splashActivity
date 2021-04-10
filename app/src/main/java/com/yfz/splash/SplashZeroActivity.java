@@ -39,11 +39,11 @@ public class SplashZeroActivity extends AppCompatActivity {
     private void initialView(){
         layoutInflater=getLayoutInflater().from(this);
         mViewPager=findViewById(R.id.viewPager);
-        mButton=findViewById(R.id.button);
         mRectanglePointerView =findViewById(R.id.rectanglePointerView);
         mView1=layoutInflater.inflate(R.layout.splash_zero_view_1,null);
         mView2=layoutInflater.inflate(R.layout.splash_zero_view_2,null);
         mView3=layoutInflater.inflate(R.layout.splash_zero_view_3,null);
+        mButton=mView3.findViewById(R.id.button);
         mArrayList=new ArrayList<>(); //将想要展示的view储存到数组中
         mArrayList.add(mView1);
         mArrayList.add(mView2);
