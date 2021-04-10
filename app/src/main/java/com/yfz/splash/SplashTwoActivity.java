@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.Button;
 
 import com.yfz.splash.customView.DotLayout;
@@ -57,7 +55,7 @@ public class SplashTwoActivity extends AppCompatActivity {
         mViewPager.setOnPageChangeListener(new ViewPagerChangeListener()); //监听页面状态
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
-        mDotLayout.setDotInformation(mArrayList.size(),10,10,10,getResources().getDrawable(R.drawable.dot_two_selected),getResources().getDrawable(R.drawable.dot_two_unselected));
+        mDotLayout.setDotInformation(mArrayList.size(),10,10,10,getResources().getDrawable(R.drawable.splash_two_dot_selected),getResources().getDrawable(R.drawable.splash_two_dot_unselected));
 
     }
     private void initialViewPager(){
