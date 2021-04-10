@@ -5,6 +5,7 @@
             android:shape="rectangle" android:useLevel="true">
             <solid
                 android:color="@color/colorWhite" />
+            <corners android:radius="8dp"></corners>
         </shape>
     </item>
 </layer-list>
