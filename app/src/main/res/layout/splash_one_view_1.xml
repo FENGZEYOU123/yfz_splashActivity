@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="#85B2F0"
     android:layout_height="match_parent">
     <ImageView
-        android:src="@drawable/strawberry"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_weight="2"
+        android:src="@drawable/icon_splash_one_2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
     </ImageView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <com.yfz.splash.customView.SplashTwoTextView
+            android:id="@+id/title_main"
+            android:text="简单的导航页1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/splash_two_tittle_size"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.yfz.splash.customView.SplashTwoTextView>
+        <TextView
+            android:text="作者：游丰泽"
+            app:layout_constraintTop_toBottomOf="@+id/title_main"
+            android:layout_marginTop="@dimen/splash_two_subTittle_marginTop"
+            android:textSize="@dimen/splash_two_subTittle_size"
+            android:textColor="#D6E7F9"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

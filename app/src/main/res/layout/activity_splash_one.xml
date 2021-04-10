@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="120dp"
         android:elevation="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -25,12 +25,17 @@
     <Button
         android:visibility="gone"
         android:id="@+id/button"
-        android:text="欢迎使用"
+        android:text="立即体验"
+        android:textSize="15sp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:textColor="@color/colorWhite"
         android:onClick="clickFinish"
+        android:background="@drawable/splash_one_button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </Button>
