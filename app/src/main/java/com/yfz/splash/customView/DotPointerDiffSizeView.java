@@ -87,7 +87,7 @@ public class DotPointerDiffSizeView extends LinearLayout {
         mDotDrawableSelected=dotDrawableSelected;
         mDotDrawableUnSelected=dotDrawableUnSelected;
         this.getLayoutParams().height= (int)(mSelectedHeight>mUnSelectedHeight?mSelectedHeight:mUnSelectedHeight);
-        this.getLayoutParams().width = (int)(mSelectedWidth +(mUnSelectedWidth)* pageNumber + mDotMargin * (pageNumber-1));
+        this.getLayoutParams().width = (int)(mSelectedWidth* pageNumber + (mDotMargin+mSelectedWidth/2) * (pageNumber-1));
     }
     //设置当前选中的页面
     public void refreshPointer(int currentPagePosition){
@@ -97,18 +97,26 @@ public class DotPointerDiffSizeView extends LinearLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        mRect.top=0;
+        mRect.bottom=getHeight();
+        mRect.left=0;
+        mRect.right=getWidth();
+        Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(Color.RED);                                                                 
+        canvas.drawRect(mRect,paint);
         if(mPageNumber>0 && mSelectedWidth >0 && mSelectedHeight >0) { //必须传入数量,Dot长宽,才开始绘制
            int i=0;
            while(i<mPageNumber){
-               mRect.top=0;
                if(mSelectedPosition==i) {
+                   mRect.top=0;
                    mRect.bottom=mSelectedHeight;
                    mRect.left=(int)(i*(mSelectedWidth +mDotMargin));
                    mRect.right=mRect.left+ mSelectedWidth;
                    mDotDrawableSelected.setBounds(mRect);
                    mDotDrawableSelected.draw(canvas);
                }else {
-                   mRect.bottom=mUnSelectedHeight;
+                   mRect.top=(getHeight()-mUnSelectedHeight)/2;
+                   mRect.bottom=mRect.top+mUnSelectedHeight;
                    mRect.left=(int)(i*(mUnSelectedWidth +mDotMargin));
                    mRect.right=mRect.left+ mUnSelectedWidth;
                    mDotDrawableUnSelected.setBounds(mRect);
