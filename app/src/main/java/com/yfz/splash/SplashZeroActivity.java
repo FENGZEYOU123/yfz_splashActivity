@@ -53,7 +53,7 @@ public class SplashZeroActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
 
-        mRectanglePointerView.setDotInformation(mArrayList.size(),20,200,getResources().getDrawable(R.drawable.splash_zero_dot_selected),getResources().getDrawable(R.drawable.splash_zero_dot_unselected));
+        mRectanglePointerView.setPointerStyle(mArrayList.size(),20,200,getResources().getDrawable(R.drawable.splash_zero_dot_selected),getResources().getDrawable(R.drawable.splash_zero_dot_unselected));
 
     }
     private void initialViewPager(){
@@ -89,7 +89,7 @@ public class SplashZeroActivity extends AppCompatActivity {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             Log.d("TAG", "onPageScrolled: "+position+" "+positionOffset+" "+positionOffsetPixels);
-            mRectanglePointerView.refreshPointerProcess(position,positionOffset); //刷新条形指示器
+            mRectanglePointerView.refreshPointer(position,positionOffset); //刷新条形指示器
 
         }
         @Override

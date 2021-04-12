@@ -75,7 +75,7 @@ public class DotPointerView extends LinearLayout {
     }
 
     //设置圆点信息-数量-高-宽
-    public void setDotInformation(int pageNumber, int dotHeight, int dotWidth, float dotMargin,Drawable dotDrawableSelected,Drawable dotDrawableUnSelected){
+    public void setPointerStyle(int pageNumber, int dotHeight, int dotWidth, float dotMargin, Drawable dotDrawableSelected, Drawable dotDrawableUnSelected){
         mPageNumber = pageNumber; //数量
         mDotHeight  = dotHeight; //高
         mDotWidth   = dotWidth; //宽
@@ -87,8 +87,8 @@ public class DotPointerView extends LinearLayout {
         this.getLayoutParams().width = (int)(mDotWidth * pageNumber + mDotMargin * (pageNumber-1));
     }
     //设置当前选中的页面
-    public void setSelectedPosition(int position){
-        mSelectedPosition=position;
+    public void refreshPointer(int currentPagePosition){
+        mSelectedPosition=currentPagePosition;
         refreshUI();
     }
     @Override

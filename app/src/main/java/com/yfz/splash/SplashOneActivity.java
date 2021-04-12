@@ -53,7 +53,7 @@ public class SplashOneActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
 
-        mDotPointerView.setDotInformation(mArrayList.size(),20,20,20,getResources().getDrawable(R.drawable.splash_one_dot_selected),getResources().getDrawable(R.drawable.splash_one_dot_unselected));
+        mDotPointerView.setPointerStyle(mArrayList.size(),20,20,20,getResources().getDrawable(R.drawable.splash_one_dot_selected),getResources().getDrawable(R.drawable.splash_one_dot_unselected));
 
     }
     private void initialViewPager(){
@@ -96,7 +96,7 @@ public class SplashOneActivity extends AppCompatActivity {
             }else {
                 mButton.setVisibility(View.GONE);
             }
-            mDotPointerView.setSelectedPosition(position); //刷新圆点UI，传入当前选中的页面位置
+            mDotPointerView.refreshPointer(position); //刷新圆点UI，传入当前选中的页面位置
         }
         @Override
         public void onPageScrollStateChanged(int state) {
