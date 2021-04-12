@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 /**
  * 作者：游丰泽
  * 简介：自定义绘制圆点指示器，用于翻页
- * setDotInfor设置圆点信息,页数，长宽，
+ * setPointerStyle设置圆点信息,页数，长宽，（选中和未选中的同时设置）
  */
-public class DotPointerView extends LinearLayout {
+public class DotPointerSameSizeView extends LinearLayout {
     private Context mContext;
     private Paint mPaintDotSelected;
     private Paint mPaintDotUnSelected;
@@ -29,15 +29,15 @@ public class DotPointerView extends LinearLayout {
     private Drawable mDotDrawableSelected;
     private Drawable mDotDrawableUnSelected;
 
-    public DotPointerView(Context context) {
+    public DotPointerSameSizeView(Context context) {
         super(context);
         initial(context);
     }
-    public DotPointerView(Context context, @Nullable AttributeSet attrs) {
+    public DotPointerSameSizeView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initial(context);
     }
-    public DotPointerView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public DotPointerSameSizeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initial(context);
     }

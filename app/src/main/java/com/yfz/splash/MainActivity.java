@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     public void GoSplashActivityTwo(View view){
         startActivity(new Intent(this, SplashTwoActivity.class));
     }
+    public void GoSplashActivityThree(View view){
+        startActivity(new Intent(this, SplashThreeActivity.class));
+    }
+
 
 
 }

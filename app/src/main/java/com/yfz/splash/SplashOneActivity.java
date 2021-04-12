@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.yfz.splash.customView.DotPointerView;
+import com.yfz.splash.customView.DotPointerSameSizeView;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public class SplashOneActivity extends AppCompatActivity {
     private ArrayList<View> mArrayList;
     private View mView1,mView2,mView3;
     private Button mButton;
-    private DotPointerView mDotPointerView;
+    private DotPointerSameSizeView mDotPointerSameSizeView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Util.fullScreen(this);
@@ -40,7 +40,7 @@ public class SplashOneActivity extends AppCompatActivity {
         layoutInflater=getLayoutInflater().from(this);
         mViewPager=findViewById(R.id.viewPager);
         mButton=findViewById(R.id.button);
-        mDotPointerView =findViewById(R.id.dotLayout);
+        mDotPointerSameSizeView =findViewById(R.id.dotLayout);
         mView1=layoutInflater.inflate(R.layout.splash_one_view_1,null);
         mView2=layoutInflater.inflate(R.layout.splash_one_view_2,null);
         mView3=layoutInflater.inflate(R.layout.splash_one_view_3,null);
@@ -53,7 +53,7 @@ public class SplashOneActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
 
-        mDotPointerView.setPointerStyle(mArrayList.size(),20,20,20,getResources().getDrawable(R.drawable.splash_one_dot_selected),getResources().getDrawable(R.drawable.splash_one_dot_unselected));
+        mDotPointerSameSizeView.setPointerStyle(mArrayList.size(),20,20,20,getResources().getDrawable(R.drawable.splash_one_dot_selected),getResources().getDrawable(R.drawable.splash_one_dot_unselected));
 
     }
     private void initialViewPager(){
@@ -96,7 +96,7 @@ public class SplashOneActivity extends AppCompatActivity {
             }else {
                 mButton.setVisibility(View.GONE);
             }
-            mDotPointerView.refreshPointer(position); //刷新圆点UI，传入当前选中的页面位置
+            mDotPointerSameSizeView.refreshPointer(position); //刷新圆点UI，传入当前选中的页面位置
         }
         @Override
         public void onPageScrollStateChanged(int state) {

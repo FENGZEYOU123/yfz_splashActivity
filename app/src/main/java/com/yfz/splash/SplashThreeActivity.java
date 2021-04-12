@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.yfz.splash.customView.DotPointerDiffSizeView;
 import com.yfz.splash.customView.DotPointerSameSizeView;
 
 import java.util.ArrayList;
@@ -20,22 +19,21 @@ import java.util.ArrayList;
 /**
  * 作者：游丰泽
  * 简介：导航页,翻到最后一页显示按钮
- * 风格1：添加自绘制的翻页圆点指示，动画按钮
- *       模仿APP "ClassIn" 的欢迎页
+ * 风格1：添加自绘制的翻页圆点指示，选中和未选中大小不一致
  */
-public class SplashTwoActivity extends AppCompatActivity {
+public class SplashThreeActivity extends AppCompatActivity {
 
     private LayoutInflater layoutInflater;
     private ViewPager mViewPager;
     private ArrayList<View> mArrayList;
     private View mView1,mView2,mView3;
     private Button mButton;
-    private DotPointerSameSizeView mDotPointerSameSizeView;
+    private DotPointerDiffSizeView mDotPointerDiffSizeView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Util.fullScreen(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_two);
+        setContentView(R.layout.activity_splash_three);
         initialView();
         initialViewPager();
     }
@@ -43,10 +41,10 @@ public class SplashTwoActivity extends AppCompatActivity {
         layoutInflater=getLayoutInflater().from(this);
         mViewPager=findViewById(R.id.viewPager);
         mButton=findViewById(R.id.button);
-        mDotPointerSameSizeView =findViewById(R.id.dotLayout);
-        mView1=layoutInflater.inflate(R.layout.splash_two_view_1,null);
-        mView2=layoutInflater.inflate(R.layout.splash_two_view_2,null);
-        mView3=layoutInflater.inflate(R.layout.splash_two_view_3,null);
+        mDotPointerDiffSizeView =findViewById(R.id.dotLayout);
+        mView1=layoutInflater.inflate(R.layout.splash_three_view_1,null);
+        mView2=layoutInflater.inflate(R.layout.splash_three_view_2,null);
+        mView3=layoutInflater.inflate(R.layout.splash_three_view_3,null);
         mArrayList=new ArrayList<>(); //将想要展示的view储存到数组中
         mArrayList.add(mView1);
         mArrayList.add(mView2);
@@ -55,7 +53,8 @@ public class SplashTwoActivity extends AppCompatActivity {
         mViewPager.setOnPageChangeListener(new ViewPagerChangeListener()); //监听页面状态
         mViewPager.setOffscreenPageLimit(mArrayList.size()-1);  //允许最大view缓存数量
         mViewPager.setOverScrollMode(mViewPager.OVER_SCROLL_NEVER); //去掉翻到顶页和尾页的水波纹
-        mDotPointerSameSizeView.setPointerStyle(mArrayList.size(),10,10,10,getResources().getDrawable(R.drawable.splash_two_dot_selected),getResources().getDrawable(R.drawable.splash_two_dot_unselected));
+
+        mDotPointerDiffSizeView.setPointerStyle(mArrayList.size(),40,40,20,20,20,getResources().getDrawable(R.drawable.splash_one_dot_selected),getResources().getDrawable(R.drawable.splash_one_dot_unselected));
 
     }
     private void initialViewPager(){
@@ -95,11 +94,10 @@ public class SplashTwoActivity extends AppCompatActivity {
         public void onPageSelected(int position) {  //翻到最后一页才显示按钮
             if(position==mArrayList.size()-1){
                 mButton.setVisibility(View.VISIBLE);
-                startAnimation(mButton);
             }else {
                 mButton.setVisibility(View.GONE);
             }
-            mDotPointerSameSizeView.refreshPointer(position); //刷新圆点UI，传入当前选中的页面位置
+            mDotPointerDiffSizeView.refreshPointer(position); //刷新圆点UI，传入当前选中的页面位置
         }
         @Override
         public void onPageScrollStateChanged(int state) {
@@ -109,12 +107,6 @@ public class SplashTwoActivity extends AppCompatActivity {
     //结束按钮
     public void clickFinish(View view){
         finish();
-    }
-    //按钮动画
-    private void startAnimation(View view){
-      ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(view,"translationY",150f,0f);
-        objectAnimator.setDuration(300);
-        objectAnimator.start();
     }
 
 }
