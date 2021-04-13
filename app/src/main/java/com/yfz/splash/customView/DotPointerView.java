@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 /**
  * 作者：游丰泽
  * 简介：自定义绘制圆点指示器，用于翻页
- * setDotInfor设置圆点信息,页数，长宽，
+ * setPointerStyle设置圆点信息,页数，长宽，
  */
 public class DotPointerView extends LinearLayout {
     private Context mContext;
