@@ -112,7 +112,7 @@ public class SplashTwoActivity extends AppCompatActivity {
     }
     //按钮动画
     private void startAnimation(View view){
-      ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(view,"translationY",150f,0f);
+      ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(view,"translationY",100f,0f);
         objectAnimator.setDuration(300);
         objectAnimator.start();
     }
